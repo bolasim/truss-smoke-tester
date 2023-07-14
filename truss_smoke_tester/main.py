@@ -26,14 +26,24 @@ TEMPLATE_DIR = Path(__file__).parent.parent / "copier_truss_template"
 
 
 def generate_and_push_truss(data: dict):
-    project_name = "_".join([TRUSS_VERSION_UNDER_TEST, *data.values()])
+    project_name = "_".join(
+        [
+            TRUSS_VERSION_UNDER_TEST,
+            *list(
+                map(
+                    str,
+                    data.values(),
+                )
+            ),
+        ]
+    )
     data["project_name"] = project_name
     with TemporaryDirectory() as truss_parent_dir:
-        run_copy(TEMPLATE_DIR, truss_parent_dir, data)
+        run_copy(str(TEMPLATE_DIR), truss_parent_dir, data)
         # TODO: run truss push and wait on predict
-    
 
-if __name__ == "__main__":
+
+def run():
     for py_version in PYTHON_VERSION:
         data = {"python_version": py_version}
         for use_gpu in USE_GPU:
@@ -45,5 +55,3 @@ if __name__ == "__main__":
             else:
                 data["accelerator"] = "null"
                 generate_and_push_truss(data)
-                    
-                    

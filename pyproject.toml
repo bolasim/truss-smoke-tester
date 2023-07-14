@@ -4,7 +4,7 @@ version = "0.1.0"
 description = ""
 authors = ["Bola Malek <bola@baseten.co>"]
 readme = "README.md"
-# packages = [{include = "truss_smoke_tester"}]
+packages = [{include = "truss_smoke_tester"}]
 
 [tool.poetry.dependencies]
 python = ">=3.10,<3.12"
@@ -17,6 +17,9 @@ ipython = "^8.14.0"
 
 [tool.poetry.group.lint.dependencies]
 black = "^23.7.0"
+
+[tool.poetry.scripts]
+smoke = 'truss_smoke_tester.main:run'
 
 [build-system]
 requires = ["poetry-core"]
