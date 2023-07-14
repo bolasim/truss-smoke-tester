@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "truss-smoke-tester"
+version = "0.1.0"
+description = ""
+authors = ["Bola Malek <bola@baseten.co>"]
+readme = "README.md"
+# packages = [{include = "truss_smoke_tester"}]
+
+[tool.poetry.dependencies]
+python = ">=3.10,<3.12"
+copier = "^8.1.0"
+
+
+[tool.poetry.group.dev.dependencies]
+ipython = "^8.14.0"
+
+
+[tool.poetry.group.lint.dependencies]
+black = "^23.7.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
