@@ -9,6 +9,7 @@ packages = [{include = "truss_smoke_tester"}]
 [tool.poetry.dependencies]
 python = ">=3.10,<3.12"
 copier = "^8.1.0"
+truss = { git = "https://github.com/basetenlabs/truss.git" }
 
 
 [tool.poetry.group.dev.dependencies]
